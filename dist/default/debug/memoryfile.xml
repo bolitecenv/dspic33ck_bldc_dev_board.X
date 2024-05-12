@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+  <executable name="dist/default/debug/dspic33ck_bldc_dev_board.X.debug.elf">
+    <memory name="data">
+      <units>bytes</units>
+      <length>24576</length>
+      <used>354</used>
+      <free>24222</free>
+    </memory>
+    <memory name="program">
+      <units>bytes</units>
+      <length>269184</length>
+      <used>28569</used>
+      <free>240615</free>
+    </memory>
+  </executable>
+</project>
