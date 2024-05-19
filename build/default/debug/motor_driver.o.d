@@ -1,4 +1,4 @@
-build/default/debug/square_wave_control.o: square_wave_control.c main.h \
+build/default/debug/motor_driver.o: motor_driver.c main.h \
  mcc_generated_files/system/system.h \
  mcc_generated_files/system/system_types.h \
  mcc_generated_files/system/pins.h mcc_generated_files/adc/adc1.h \

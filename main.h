@@ -34,6 +34,7 @@
 #include <xc.h> // include processor files - each processor file is guarded.  
 
 #include <stdbool.h>
+#include <string.h>
 
 #include "mcc_generated_files/system/system.h"
 #include "mcc_generated_files/system/pins.h"
@@ -42,6 +43,9 @@
 #include "mcc_generated_files/pwm_hs/pwm_hs_interface.h"
 
 #include "pwm_user.h"
+#include "motor_driver.h"
+#include "square_wave_control.h"
+#include "sine_wave_control.h"
 
 
 #ifdef	__cplusplus

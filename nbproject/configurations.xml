@@ -55,6 +55,8 @@
       <itemPath>motor_driver.h</itemPath>
       <itemPath>pwm_user.h</itemPath>
       <itemPath>main.h</itemPath>
+      <itemPath>motor_driver_macros.h</itemPath>
+      <itemPath>sine_wave_control.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -118,6 +120,8 @@
       <itemPath>main.c</itemPath>
       <itemPath>pwm_user.c</itemPath>
       <itemPath>square_wave_control.c</itemPath>
+      <itemPath>motor_driver.c</itemPath>
+      <itemPath>sine_wave_control.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>

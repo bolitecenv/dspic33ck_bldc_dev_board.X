@@ -18,36 +18,19 @@
     EXCEED AMOUNT OF FEES, IF ANY, YOU PAID DIRECTLY TO MICROCHIP FOR 
     THIS SOFTWARE.
 */
-
-#include <stdbool.h>
-
-#include "mcc_generated_files/system/system.h"
-#include "mcc_generated_files/system/pins.h"
-#include "mcc_generated_files/adc/adc1.h"
-#include "mcc_generated_files/pwm_hs/pwm.h"
-#include "mcc_generated_files/pwm_hs/pwm_hs_interface.h"
-
+#include "main.h"
 
 /*
     Main application
 */
 
-uint8_t sine_wave[] = {127,121,112,100,88,76,64,52,40,28,16,4,0,4,16,28,40,52,64,76,88,100,112,121};
+
 uint8_t fault_flag = 0;
 
 volatile uint8_t COMPA_flag, COMPB_flag, COMPC_flag;
 
 volatile uint8_t Motor_Power = 30;
 
-uint16_t Get_Duty(uint8_t duty)
-{
-    return (uint16_t)(PG1PER/100*duty);
-}
-
-uint8_t Get_Power(uint8_t power)
-{
-    return (uint8_t)(128*power/100);
-}
 
 void IO_RC3_CallBack(void)
 {
@@ -72,243 +55,10 @@ void MCP802X_FAULT_CallBack(void)
     fault_flag = 1;
 }
 
-void Sine_NoFeedBack()
-{
-    char cnt_a = 0;
-    char cnt_b = 0;
-    char cnt_c = 0;
-    int ph_a, ph_b, ph_c;
-    
-
-    while(1)
-    {
-        ph_a = Get_Duty(sine_wave[cnt_a]*Motor_Power/128);
-        ph_b = Get_Duty(sine_wave[cnt_b]*Motor_Power/128);
-        ph_c = Get_Duty(sine_wave[cnt_c]*Motor_Power/128);
-        
-        //printf("ph %d\r\n", ph_a);
-    
-        PWM_DutyCycleSet(PWM_GENERATOR_1, ph_a);
-        PWM_DutyCycleSet(PWM_GENERATOR_2, ph_b);
-        PWM_DutyCycleSet(PWM_GENERATOR_3, ph_c);
-        
-        
-        cnt_a++;
-        cnt_a = cnt_a%24;
-        cnt_b = (cnt_a + 8)%24;
-        cnt_c = (cnt_a + 16)%24;
-
-        
-        LATE = (LATE & ~0x0400);
-        DELAY_milliseconds(1);
-        
-        if(fault_flag == 100)
-        {
-
-            
-            //break;
-        }
-    }
-    
-    while(1);
-    
-    
-}
 
 
 
-void Square_Pulse()
-{
-    char cnt_a = 0;
-    char cnt_b = 0;
-    char cnt_c = 0;
-    int ph_abc, ph_N;
-    
-    
-    uint16_t speed = 10;//ms
-    
-    Motor_Power = 30;
-    
-    ph_abc = Get_Duty(Motor_Power);
-    //ph_N = Get_Duty(0);
-    
 
-    PWM_ResetAll();
-    
-    while(1)
-    {
-        speed = (uint16_t)(ADC1_ConversionResultGet(0)>>5);
-        
-        PWM_ResetAll();
-        
-        PWM_PinMode_Enable(PWM_GENERATOR_2);
-        PWM_PinMode_Enable(PWM_GENERATOR_3);
-        PWM_DutyCycleSet(PWM_GENERATOR_1, ph_abc);
-        PWM_Pin_SetLowSide(PWM_GENERATOR_2);
-        PWM_Set_HiZ(PWM_GENERATOR_3);
-        
-        DELAY_milliseconds(speed);
-        
-        
-        PWM_ResetAll();
-        
-        PWM_PinMode_Enable(PWM_GENERATOR_2);
-        PWM_PinMode_Enable(PWM_GENERATOR_3);
-        PWM_DutyCycleSet(PWM_GENERATOR_1, ph_abc);
-        PWM_Pin_SetLowSide(PWM_GENERATOR_3);
-        PWM_Set_HiZ(PWM_GENERATOR_2);
-        
-        DELAY_milliseconds(speed);
-        
-        
-        PWM_ResetAll();
-        
-        PWM_PinMode_Enable(PWM_GENERATOR_1);
-        PWM_PinMode_Enable(PWM_GENERATOR_3);
-        PWM_DutyCycleSet(PWM_GENERATOR_2, ph_abc);
-        PWM_Pin_SetLowSide(PWM_GENERATOR_3);
-        PWM_Set_HiZ(PWM_GENERATOR_1);
-        
-        DELAY_milliseconds(speed);
-        
-        PWM_ResetAll();
-        
-        PWM_PinMode_Enable(PWM_GENERATOR_1);
-        PWM_PinMode_Enable(PWM_GENERATOR_3);
-        PWM_DutyCycleSet(PWM_GENERATOR_2, ph_abc);
-        PWM_Pin_SetLowSide(PWM_GENERATOR_1);
-        PWM_Set_HiZ(PWM_GENERATOR_3);
-        
-        DELAY_milliseconds(speed);
-        
-        
-        PWM_ResetAll();
-        
-        PWM_PinMode_Enable(PWM_GENERATOR_1);
-        PWM_PinMode_Enable(PWM_GENERATOR_2);
-        PWM_DutyCycleSet(PWM_GENERATOR_3, ph_abc);
-        PWM_Pin_SetLowSide(PWM_GENERATOR_1);
-        PWM_Set_HiZ(PWM_GENERATOR_2);
-        
-        DELAY_milliseconds(speed);
-        
-        
-        PWM_ResetAll();
-        
-        PWM_PinMode_Enable(PWM_GENERATOR_1);
-        PWM_PinMode_Enable(PWM_GENERATOR_2);
-        PWM_DutyCycleSet(PWM_GENERATOR_3, ph_abc);
-        PWM_Pin_SetLowSide(PWM_GENERATOR_2);
-        PWM_Set_HiZ(PWM_GENERATOR_1);
-        
-        DELAY_milliseconds(speed);
-    }
-}
-
-
-
-void Square_FeedBack()
-{
-    int ph_abc;
-    
-    uint16_t speed = 10;//ms
-    
-    Motor_Power = 50;
-    
-    ph_abc = Get_Duty(Motor_Power);
-    
-    
-    COMPA_flag = 0;
-    COMPB_flag = 0;
-    COMPC_flag = 0;
-    
-
-    PWM_ResetAll();
-    
-    while(1)
-    {
-        Motor_Power = (uint16_t)((ADC1_ConversionResultGet(0)>>5) % 100);
-        ph_abc = Get_Duty(Motor_Power);
-        
-        PWM_ResetAll();
-        
-        PWM_PinMode_Enable(PWM_GENERATOR_2);
-        PWM_PinMode_Enable(PWM_GENERATOR_3);
-        PWM_DutyCycleSet(PWM_GENERATOR_1, ph_abc);
-        PWM_Pin_SetLowSide(PWM_GENERATOR_2);
-        PWM_Set_HiZ(PWM_GENERATOR_3);
-        
-        
-        while(PORTDbits.RD11 == 1);
-//        COMPC_flag = 0;
-//        while(COMPC_flag == 0);
-        
-        
-        PWM_ResetAll();
-        
-        PWM_PinMode_Enable(PWM_GENERATOR_2);
-        PWM_PinMode_Enable(PWM_GENERATOR_3);
-        PWM_DutyCycleSet(PWM_GENERATOR_1, ph_abc);
-        PWM_Pin_SetLowSide(PWM_GENERATOR_3);
-        PWM_Set_HiZ(PWM_GENERATOR_2);
-        
-        while(PORTDbits.RD10 == 0);
-//        COMPB_flag = 0;
-//        while(COMPB_flag == 0);
-
-        
-        
-        PWM_ResetAll();
-        
-        PWM_PinMode_Enable(PWM_GENERATOR_1);
-        PWM_PinMode_Enable(PWM_GENERATOR_3);
-        PWM_DutyCycleSet(PWM_GENERATOR_2, ph_abc);
-        PWM_Pin_SetLowSide(PWM_GENERATOR_3);
-        PWM_Set_HiZ(PWM_GENERATOR_1);
-        
-        while(PORTCbits.RC3 == 1);
-//        COMPA_flag = 0;
-//        while(COMPA_flag == 0);
-        
-        PWM_ResetAll();
-        
-        PWM_PinMode_Enable(PWM_GENERATOR_1);
-        PWM_PinMode_Enable(PWM_GENERATOR_3);
-        PWM_DutyCycleSet(PWM_GENERATOR_2, ph_abc);
-        PWM_Pin_SetLowSide(PWM_GENERATOR_1);
-        PWM_Set_HiZ(PWM_GENERATOR_3);
-        
-        while(PORTDbits.RD11 == 0);
-//        COMPC_flag = 0;
-//        while(COMPC_flag == 0);
-        
-        
-        PWM_ResetAll();
-        
-        PWM_PinMode_Enable(PWM_GENERATOR_1);
-        PWM_PinMode_Enable(PWM_GENERATOR_2);
-        PWM_DutyCycleSet(PWM_GENERATOR_3, ph_abc);
-        PWM_Pin_SetLowSide(PWM_GENERATOR_1);
-        PWM_Set_HiZ(PWM_GENERATOR_2);
-        
-        while(PORTDbits.RD10 == 1);
-//        COMPB_flag = 0;
-//        while(COMPB_flag == 0);
-        
-        
-        PWM_ResetAll();
-        
-        PWM_PinMode_Enable(PWM_GENERATOR_1);
-        PWM_PinMode_Enable(PWM_GENERATOR_2);
-        PWM_DutyCycleSet(PWM_GENERATOR_3, ph_abc);
-        PWM_Pin_SetLowSide(PWM_GENERATOR_2);
-        PWM_Set_HiZ(PWM_GENERATOR_1);
-        
-        while(PORTCbits.RC3 == 0);
-//        COMPA_flag = 0;
-//        while(COMPA_flag == 0);
-    }
-}
 
 
 void MOSFET_Signal()
@@ -369,9 +119,10 @@ int main(void)
     //LATE = 0xffff;
     
 
-    //Sine_NoFeedBack();
+    Sine_NoFeedBack();
     //Square_Pulse();
-    Square_FeedBack();
+    //Square_Pulse2();
+    //Square_FeedBack();
     //MOSFET_Signal();
     
     uint16_t dutyCycle;
