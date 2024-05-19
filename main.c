@@ -115,47 +115,7 @@ void Sine_NoFeedBack()
     
 }
 
-void PWM_PinMode_Enable(enum PWM_GENERATOR genNum)
-{
-    PWM_OverrideHighEnable(genNum);
-    PWM_OverrideLowEnable(genNum);
-    PWM_SoftwareUpdateRequest(genNum);
-}
 
-void PWM_PinMode_Disable(enum PWM_GENERATOR genNum)
-{
-    PWM_OverrideHighDisable(genNum);
-    PWM_OverrideLowDisable(genNum);
-    PWM_SoftwareUpdateRequest(genNum);
-}
-
-void PWM_Set_HiZ(enum PWM_GENERATOR genNum)
-{
-    PWM_OverrideDataHighSet(genNum, false);
-    PWM_OverrideDataLowSet(genNum, false);
-    PWM_SoftwareUpdateRequest(genNum);
-}
-
-void PWM_Pin_SetLowSide(enum PWM_GENERATOR genNum)
-{
-    PWM_OverrideDataHighSet(genNum, false);
-    PWM_OverrideDataLowSet(genNum, true);
-    PWM_SoftwareUpdateRequest(genNum);
-}
-
-void PWM_Pin_SetHighSide(enum PWM_GENERATOR genNum)
-{
-    PWM_OverrideDataHighSet(genNum, true);
-    PWM_OverrideDataLowSet(genNum, false);
-    PWM_SoftwareUpdateRequest(genNum);
-}
-
-void PWM_ResetAll()
-{
-    PWM_PinMode_Disable(PWM_GENERATOR_1);
-    PWM_PinMode_Disable(PWM_GENERATOR_2);
-    PWM_PinMode_Disable(PWM_GENERATOR_3);
-}
 
 void Square_Pulse()
 {

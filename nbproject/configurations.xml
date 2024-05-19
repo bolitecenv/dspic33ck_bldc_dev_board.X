@@ -51,6 +51,10 @@
           <itemPath>mcc_generated_files/uart/uart2.h</itemPath>
         </logicalFolder>
       </logicalFolder>
+      <itemPath>square_wave_control.h</itemPath>
+      <itemPath>motor_driver.h</itemPath>
+      <itemPath>pwm_user.h</itemPath>
+      <itemPath>main.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -112,6 +116,8 @@
         </logicalFolder>
       </logicalFolder>
       <itemPath>main.c</itemPath>
+      <itemPath>pwm_user.c</itemPath>
+      <itemPath>square_wave_control.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
