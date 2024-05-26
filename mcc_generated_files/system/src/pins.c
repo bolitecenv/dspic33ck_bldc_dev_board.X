@@ -60,8 +60,8 @@ void PINS_Initialize(void)
     /****************************************************************************
      * Setting the GPIO Direction SFR(s)
      ***************************************************************************/
-    TRISA = 0x000E;
-    TRISB = 0x03F9;
+    TRISA = 0x000F;
+    TRISB = 0x03FD;
     TRISC = 0xE7FF;
     TRISD = 0xFFFC;
     TRISE = 0xFBEF;

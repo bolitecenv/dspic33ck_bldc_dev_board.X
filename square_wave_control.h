@@ -33,6 +33,7 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
+void Square_Control_Setup();
 void Square_Pulse();
 void Square_FeedBack();
 

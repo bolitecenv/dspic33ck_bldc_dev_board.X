@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=mcc_generated_files/adc/src/adc1.c mcc_generated_files/opa/src/opa3.c mcc_generated_files/opa/src/opa1.c mcc_generated_files/opa/src/opa2.c mcc_generated_files/pwm_hs/src/pwm.c mcc_generated_files/system/src/traps.c mcc_generated_files/system/src/config_bits.c mcc_generated_files/system/src/clock.c mcc_generated_files/system/src/system.c mcc_generated_files/system/src/pins.c mcc_generated_files/system/src/interrupt.c mcc_generated_files/system/src/reset.c mcc_generated_files/system/src/dmt.c mcc_generated_files/system/src/dmt_asm.s mcc_generated_files/timer/src/delay.c mcc_generated_files/timer/src/sccp1.c mcc_generated_files/uart/src/uart1.c mcc_generated_files/uart/src/uart2.c main.c pwm_user.c square_wave_control.c motor_driver.c sine_wave_control.c
+SOURCEFILES_QUOTED_IF_SPACED=mcc_generated_files/adc/src/adc1.c mcc_generated_files/opa/src/opa3.c mcc_generated_files/pwm_hs/src/pwm.c mcc_generated_files/system/src/traps.c mcc_generated_files/system/src/config_bits.c mcc_generated_files/system/src/clock.c mcc_generated_files/system/src/system.c mcc_generated_files/system/src/pins.c mcc_generated_files/system/src/interrupt.c mcc_generated_files/system/src/reset.c mcc_generated_files/system/src/dmt.c mcc_generated_files/system/src/dmt_asm.s mcc_generated_files/timer/src/delay.c mcc_generated_files/timer/src/sccp1.c mcc_generated_files/uart/src/uart1.c mcc_generated_files/uart/src/uart2.c main.c pwm_user.c square_wave_control.c motor_driver.c sine_wave_control.c mcp8024_driver.c mcc_generated_files/dma/src/dma.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/mcc_generated_files/adc/src/adc1.o ${OBJECTDIR}/mcc_generated_files/opa/src/opa3.o ${OBJECTDIR}/mcc_generated_files/opa/src/opa1.o ${OBJECTDIR}/mcc_generated_files/opa/src/opa2.o ${OBJECTDIR}/mcc_generated_files/pwm_hs/src/pwm.o ${OBJECTDIR}/mcc_generated_files/system/src/traps.o ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.o ${OBJECTDIR}/mcc_generated_files/system/src/clock.o ${OBJECTDIR}/mcc_generated_files/system/src/system.o ${OBJECTDIR}/mcc_generated_files/system/src/pins.o ${OBJECTDIR}/mcc_generated_files/system/src/interrupt.o ${OBJECTDIR}/mcc_generated_files/system/src/reset.o ${OBJECTDIR}/mcc_generated_files/system/src/dmt.o ${OBJECTDIR}/mcc_generated_files/system/src/dmt_asm.o ${OBJECTDIR}/mcc_generated_files/timer/src/delay.o ${OBJECTDIR}/mcc_generated_files/timer/src/sccp1.o ${OBJECTDIR}/mcc_generated_files/uart/src/uart1.o ${OBJECTDIR}/mcc_generated_files/uart/src/uart2.o ${OBJECTDIR}/main.o ${OBJECTDIR}/pwm_user.o ${OBJECTDIR}/square_wave_control.o ${OBJECTDIR}/motor_driver.o ${OBJECTDIR}/sine_wave_control.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/mcc_generated_files/adc/src/adc1.o.d ${OBJECTDIR}/mcc_generated_files/opa/src/opa3.o.d ${OBJECTDIR}/mcc_generated_files/opa/src/opa1.o.d ${OBJECTDIR}/mcc_generated_files/opa/src/opa2.o.d ${OBJECTDIR}/mcc_generated_files/pwm_hs/src/pwm.o.d ${OBJECTDIR}/mcc_generated_files/system/src/traps.o.d ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.o.d ${OBJECTDIR}/mcc_generated_files/system/src/clock.o.d ${OBJECTDIR}/mcc_generated_files/system/src/system.o.d ${OBJECTDIR}/mcc_generated_files/system/src/pins.o.d ${OBJECTDIR}/mcc_generated_files/system/src/interrupt.o.d ${OBJECTDIR}/mcc_generated_files/system/src/reset.o.d ${OBJECTDIR}/mcc_generated_files/system/src/dmt.o.d ${OBJECTDIR}/mcc_generated_files/system/src/dmt_asm.o.d ${OBJECTDIR}/mcc_generated_files/timer/src/delay.o.d ${OBJECTDIR}/mcc_generated_files/timer/src/sccp1.o.d ${OBJECTDIR}/mcc_generated_files/uart/src/uart1.o.d ${OBJECTDIR}/mcc_generated_files/uart/src/uart2.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/pwm_user.o.d ${OBJECTDIR}/square_wave_control.o.d ${OBJECTDIR}/motor_driver.o.d ${OBJECTDIR}/sine_wave_control.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/mcc_generated_files/adc/src/adc1.o ${OBJECTDIR}/mcc_generated_files/opa/src/opa3.o ${OBJECTDIR}/mcc_generated_files/pwm_hs/src/pwm.o ${OBJECTDIR}/mcc_generated_files/system/src/traps.o ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.o ${OBJECTDIR}/mcc_generated_files/system/src/clock.o ${OBJECTDIR}/mcc_generated_files/system/src/system.o ${OBJECTDIR}/mcc_generated_files/system/src/pins.o ${OBJECTDIR}/mcc_generated_files/system/src/interrupt.o ${OBJECTDIR}/mcc_generated_files/system/src/reset.o ${OBJECTDIR}/mcc_generated_files/system/src/dmt.o ${OBJECTDIR}/mcc_generated_files/system/src/dmt_asm.o ${OBJECTDIR}/mcc_generated_files/timer/src/delay.o ${OBJECTDIR}/mcc_generated_files/timer/src/sccp1.o ${OBJECTDIR}/mcc_generated_files/uart/src/uart1.o ${OBJECTDIR}/mcc_generated_files/uart/src/uart2.o ${OBJECTDIR}/main.o ${OBJECTDIR}/pwm_user.o ${OBJECTDIR}/square_wave_control.o ${OBJECTDIR}/motor_driver.o ${OBJECTDIR}/sine_wave_control.o ${OBJECTDIR}/mcp8024_driver.o ${OBJECTDIR}/mcc_generated_files/dma/src/dma.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/mcc_generated_files/adc/src/adc1.o.d ${OBJECTDIR}/mcc_generated_files/opa/src/opa3.o.d ${OBJECTDIR}/mcc_generated_files/pwm_hs/src/pwm.o.d ${OBJECTDIR}/mcc_generated_files/system/src/traps.o.d ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.o.d ${OBJECTDIR}/mcc_generated_files/system/src/clock.o.d ${OBJECTDIR}/mcc_generated_files/system/src/system.o.d ${OBJECTDIR}/mcc_generated_files/system/src/pins.o.d ${OBJECTDIR}/mcc_generated_files/system/src/interrupt.o.d ${OBJECTDIR}/mcc_generated_files/system/src/reset.o.d ${OBJECTDIR}/mcc_generated_files/system/src/dmt.o.d ${OBJECTDIR}/mcc_generated_files/system/src/dmt_asm.o.d ${OBJECTDIR}/mcc_generated_files/timer/src/delay.o.d ${OBJECTDIR}/mcc_generated_files/timer/src/sccp1.o.d ${OBJECTDIR}/mcc_generated_files/uart/src/uart1.o.d ${OBJECTDIR}/mcc_generated_files/uart/src/uart2.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/pwm_user.o.d ${OBJECTDIR}/square_wave_control.o.d ${OBJECTDIR}/motor_driver.o.d ${OBJECTDIR}/sine_wave_control.o.d ${OBJECTDIR}/mcp8024_driver.o.d ${OBJECTDIR}/mcc_generated_files/dma/src/dma.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/mcc_generated_files/adc/src/adc1.o ${OBJECTDIR}/mcc_generated_files/opa/src/opa3.o ${OBJECTDIR}/mcc_generated_files/opa/src/opa1.o ${OBJECTDIR}/mcc_generated_files/opa/src/opa2.o ${OBJECTDIR}/mcc_generated_files/pwm_hs/src/pwm.o ${OBJECTDIR}/mcc_generated_files/system/src/traps.o ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.o ${OBJECTDIR}/mcc_generated_files/system/src/clock.o ${OBJECTDIR}/mcc_generated_files/system/src/system.o ${OBJECTDIR}/mcc_generated_files/system/src/pins.o ${OBJECTDIR}/mcc_generated_files/system/src/interrupt.o ${OBJECTDIR}/mcc_generated_files/system/src/reset.o ${OBJECTDIR}/mcc_generated_files/system/src/dmt.o ${OBJECTDIR}/mcc_generated_files/system/src/dmt_asm.o ${OBJECTDIR}/mcc_generated_files/timer/src/delay.o ${OBJECTDIR}/mcc_generated_files/timer/src/sccp1.o ${OBJECTDIR}/mcc_generated_files/uart/src/uart1.o ${OBJECTDIR}/mcc_generated_files/uart/src/uart2.o ${OBJECTDIR}/main.o ${OBJECTDIR}/pwm_user.o ${OBJECTDIR}/square_wave_control.o ${OBJECTDIR}/motor_driver.o ${OBJECTDIR}/sine_wave_control.o
+OBJECTFILES=${OBJECTDIR}/mcc_generated_files/adc/src/adc1.o ${OBJECTDIR}/mcc_generated_files/opa/src/opa3.o ${OBJECTDIR}/mcc_generated_files/pwm_hs/src/pwm.o ${OBJECTDIR}/mcc_generated_files/system/src/traps.o ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.o ${OBJECTDIR}/mcc_generated_files/system/src/clock.o ${OBJECTDIR}/mcc_generated_files/system/src/system.o ${OBJECTDIR}/mcc_generated_files/system/src/pins.o ${OBJECTDIR}/mcc_generated_files/system/src/interrupt.o ${OBJECTDIR}/mcc_generated_files/system/src/reset.o ${OBJECTDIR}/mcc_generated_files/system/src/dmt.o ${OBJECTDIR}/mcc_generated_files/system/src/dmt_asm.o ${OBJECTDIR}/mcc_generated_files/timer/src/delay.o ${OBJECTDIR}/mcc_generated_files/timer/src/sccp1.o ${OBJECTDIR}/mcc_generated_files/uart/src/uart1.o ${OBJECTDIR}/mcc_generated_files/uart/src/uart2.o ${OBJECTDIR}/main.o ${OBJECTDIR}/pwm_user.o ${OBJECTDIR}/square_wave_control.o ${OBJECTDIR}/motor_driver.o ${OBJECTDIR}/sine_wave_control.o ${OBJECTDIR}/mcp8024_driver.o ${OBJECTDIR}/mcc_generated_files/dma/src/dma.o
 
 # Source Files
-SOURCEFILES=mcc_generated_files/adc/src/adc1.c mcc_generated_files/opa/src/opa3.c mcc_generated_files/opa/src/opa1.c mcc_generated_files/opa/src/opa2.c mcc_generated_files/pwm_hs/src/pwm.c mcc_generated_files/system/src/traps.c mcc_generated_files/system/src/config_bits.c mcc_generated_files/system/src/clock.c mcc_generated_files/system/src/system.c mcc_generated_files/system/src/pins.c mcc_generated_files/system/src/interrupt.c mcc_generated_files/system/src/reset.c mcc_generated_files/system/src/dmt.c mcc_generated_files/system/src/dmt_asm.s mcc_generated_files/timer/src/delay.c mcc_generated_files/timer/src/sccp1.c mcc_generated_files/uart/src/uart1.c mcc_generated_files/uart/src/uart2.c main.c pwm_user.c square_wave_control.c motor_driver.c sine_wave_control.c
+SOURCEFILES=mcc_generated_files/adc/src/adc1.c mcc_generated_files/opa/src/opa3.c mcc_generated_files/pwm_hs/src/pwm.c mcc_generated_files/system/src/traps.c mcc_generated_files/system/src/config_bits.c mcc_generated_files/system/src/clock.c mcc_generated_files/system/src/system.c mcc_generated_files/system/src/pins.c mcc_generated_files/system/src/interrupt.c mcc_generated_files/system/src/reset.c mcc_generated_files/system/src/dmt.c mcc_generated_files/system/src/dmt_asm.s mcc_generated_files/timer/src/delay.c mcc_generated_files/timer/src/sccp1.c mcc_generated_files/uart/src/uart1.c mcc_generated_files/uart/src/uart2.c main.c pwm_user.c square_wave_control.c motor_driver.c sine_wave_control.c mcp8024_driver.c mcc_generated_files/dma/src/dma.c
 
 
 
@@ -100,18 +100,6 @@ ${OBJECTDIR}/mcc_generated_files/opa/src/opa3.o: mcc_generated_files/opa/src/opa
 	@${RM} ${OBJECTDIR}/mcc_generated_files/opa/src/opa3.o.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/opa/src/opa3.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  mcc_generated_files/opa/src/opa3.c  -o ${OBJECTDIR}/mcc_generated_files/opa/src/opa3.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/mcc_generated_files/opa/src/opa3.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
-	
-${OBJECTDIR}/mcc_generated_files/opa/src/opa1.o: mcc_generated_files/opa/src/opa1.c  .generated_files/flags/default/4380adff51fcdc75a6c80e6e37c26c17af62f4a4 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
-	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/opa/src" 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/opa/src/opa1.o.d 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/opa/src/opa1.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  mcc_generated_files/opa/src/opa1.c  -o ${OBJECTDIR}/mcc_generated_files/opa/src/opa1.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/mcc_generated_files/opa/src/opa1.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
-	
-${OBJECTDIR}/mcc_generated_files/opa/src/opa2.o: mcc_generated_files/opa/src/opa2.c  .generated_files/flags/default/301f7a594ad4fadb94e0ae311878f73044159ed .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
-	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/opa/src" 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/opa/src/opa2.o.d 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/opa/src/opa2.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  mcc_generated_files/opa/src/opa2.c  -o ${OBJECTDIR}/mcc_generated_files/opa/src/opa2.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/mcc_generated_files/opa/src/opa2.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
 ${OBJECTDIR}/mcc_generated_files/pwm_hs/src/pwm.o: mcc_generated_files/pwm_hs/src/pwm.c  .generated_files/flags/default/bd73c1bcd4480c8b239171eb08046d3fe2b90428 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/pwm_hs/src" 
@@ -221,6 +209,18 @@ ${OBJECTDIR}/sine_wave_control.o: sine_wave_control.c  .generated_files/flags/de
 	@${RM} ${OBJECTDIR}/sine_wave_control.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  sine_wave_control.c  -o ${OBJECTDIR}/sine_wave_control.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/sine_wave_control.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
+${OBJECTDIR}/mcp8024_driver.o: mcp8024_driver.c  .generated_files/flags/default/4cbbe14b9bf33c8561f917738d380328e204b3c4 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/mcp8024_driver.o.d 
+	@${RM} ${OBJECTDIR}/mcp8024_driver.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  mcp8024_driver.c  -o ${OBJECTDIR}/mcp8024_driver.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/mcp8024_driver.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/mcc_generated_files/dma/src/dma.o: mcc_generated_files/dma/src/dma.c  .generated_files/flags/default/f5154d24d421d0bea41fc4d07771fd7a3ea17203 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/dma/src" 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/dma/src/dma.o.d 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/dma/src/dma.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  mcc_generated_files/dma/src/dma.c  -o ${OBJECTDIR}/mcc_generated_files/dma/src/dma.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/mcc_generated_files/dma/src/dma.o.d"      -g -D__DEBUG   -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
 else
 ${OBJECTDIR}/mcc_generated_files/adc/src/adc1.o: mcc_generated_files/adc/src/adc1.c  .generated_files/flags/default/376748d23e1f37ee9653f037a7263ad656f56347 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/adc/src" 
@@ -233,18 +233,6 @@ ${OBJECTDIR}/mcc_generated_files/opa/src/opa3.o: mcc_generated_files/opa/src/opa
 	@${RM} ${OBJECTDIR}/mcc_generated_files/opa/src/opa3.o.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/opa/src/opa3.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  mcc_generated_files/opa/src/opa3.c  -o ${OBJECTDIR}/mcc_generated_files/opa/src/opa3.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/mcc_generated_files/opa/src/opa3.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
-	
-${OBJECTDIR}/mcc_generated_files/opa/src/opa1.o: mcc_generated_files/opa/src/opa1.c  .generated_files/flags/default/806f3ffc503af24c50d5a686cfa83c354d7389 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
-	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/opa/src" 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/opa/src/opa1.o.d 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/opa/src/opa1.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  mcc_generated_files/opa/src/opa1.c  -o ${OBJECTDIR}/mcc_generated_files/opa/src/opa1.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/mcc_generated_files/opa/src/opa1.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
-	
-${OBJECTDIR}/mcc_generated_files/opa/src/opa2.o: mcc_generated_files/opa/src/opa2.c  .generated_files/flags/default/1fbf0d5eb46b44d8ac302e50501d4624a86b3c90 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
-	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/opa/src" 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/opa/src/opa2.o.d 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/opa/src/opa2.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  mcc_generated_files/opa/src/opa2.c  -o ${OBJECTDIR}/mcc_generated_files/opa/src/opa2.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/mcc_generated_files/opa/src/opa2.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
 ${OBJECTDIR}/mcc_generated_files/pwm_hs/src/pwm.o: mcc_generated_files/pwm_hs/src/pwm.c  .generated_files/flags/default/f2a140869b713007502fd0bdc9a953533da51013 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/pwm_hs/src" 
@@ -353,6 +341,18 @@ ${OBJECTDIR}/sine_wave_control.o: sine_wave_control.c  .generated_files/flags/de
 	@${RM} ${OBJECTDIR}/sine_wave_control.o.d 
 	@${RM} ${OBJECTDIR}/sine_wave_control.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  sine_wave_control.c  -o ${OBJECTDIR}/sine_wave_control.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/sine_wave_control.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/mcp8024_driver.o: mcp8024_driver.c  .generated_files/flags/default/81a92ba49f9b02270af96b90c04ce0d7aaecb8db .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/mcp8024_driver.o.d 
+	@${RM} ${OBJECTDIR}/mcp8024_driver.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  mcp8024_driver.c  -o ${OBJECTDIR}/mcp8024_driver.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/mcp8024_driver.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	
+${OBJECTDIR}/mcc_generated_files/dma/src/dma.o: mcc_generated_files/dma/src/dma.c  .generated_files/flags/default/e42d21338fc3d85134ae279cba493507f04bdec4 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/dma/src" 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/dma/src/dma.o.d 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/dma/src/dma.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  mcc_generated_files/dma/src/dma.c  -o ${OBJECTDIR}/mcc_generated_files/dma/src/dma.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MP -MMD -MF "${OBJECTDIR}/mcc_generated_files/dma/src/dma.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	
 endif
 

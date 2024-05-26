@@ -55,8 +55,10 @@
 enum ADC_CHANNEL
 {
     Channel_AN22,    /**<Channel Name:AN22   Assigned to:Shared Channel*/
-    MAX_CHANNELS = 1,    /**< MAX_CHANNELS will be removed in future MCC releases. Use ADC_MAX_CHANNELS instead */
-    ADC_MAX_CHANNELS = 1    /**< Maximum number of channels configured by user in MCC Melody User Interface */
+    Channel_AN0,    /**<Channel Name:AN0   Assigned to:Dedicated Core0*/
+    Channel_AN1,    /**<Channel Name:AN1   Assigned to:Dedicated Core1*/
+    MAX_CHANNELS = 3,    /**< MAX_CHANNELS will be removed in future MCC releases. Use ADC_MAX_CHANNELS instead */
+    ADC_MAX_CHANNELS = 3    /**< Maximum number of channels configured by user in MCC Melody User Interface */
 };
 
 
@@ -71,8 +73,12 @@ enum ADC_CHANNEL
 */
 enum ADC_DEDICATED_CORE
 {
-    MAX_DEDICATED_CORES = 0,    /**< MAX_DEDICATED_CORES will be removed in future MCC releases. Use ADC_MAX_DEDICATED_CORES instead */
-    ADC_MAX_DEDICATED_CORES = 0    /**< Maximum cores configured by user in MCC Melody User Interface */
+    CORE_0 = 0,    /**<CORE_0 will be removed in future MCC releases. Use ADC_CORE_0 instead. */
+    ADC_CORE_0 = 0,    /**<Core name:ADC_CORE_0*/
+    CORE_1 = 1,    /**<CORE_1 will be removed in future MCC releases. Use ADC_CORE_1 instead. */
+    ADC_CORE_1 = 1,    /**<Core name:ADC_CORE_1*/
+    MAX_DEDICATED_CORES = 2,    /**< MAX_DEDICATED_CORES will be removed in future MCC releases. Use ADC_MAX_DEDICATED_CORES instead */
+    ADC_MAX_DEDICATED_CORES = 2    /**< Maximum cores configured by user in MCC Melody User Interface */
 };
 
 /**

@@ -184,6 +184,12 @@ inline static uint16_t ADC1_ConversionResultGet( enum ADC_CHANNEL channel )
         case Channel_AN22:
                 result = ADCBUF22;
                 break;
+        case Channel_AN0:
+                result = ADCBUF0;
+                break;
+        case Channel_AN1:
+                result = ADCBUF1;
+                break;
         default:
                 break;
     }
@@ -211,6 +217,12 @@ inline static bool ADC1_IsConversionComplete(enum ADC_CHANNEL channel)
         case Channel_AN22:
                 status = ADSTATHbits.AN22RDY;
                 break;
+        case Channel_AN0:
+                status = ADSTATLbits.AN0RDY;
+                break;
+        case Channel_AN1:
+                status = ADSTATLbits.AN1RDY;
+                break;
         default:
                 break;
     }
@@ -227,6 +239,8 @@ inline static bool ADC1_IsConversionComplete(enum ADC_CHANNEL channel)
  */
 inline static void ADC1_ResolutionSet(enum ADC_RESOLUTION_TYPE resolution)
 {
+   ADCORE0Hbits.RES = resolution;
+   ADCORE1Hbits.RES = resolution;
    ADCON1Hbits.SHRRES = resolution;
 }
 
@@ -320,6 +334,14 @@ inline static void ADC1_IndividualChannelInterruptEnable(enum ADC_CHANNEL channe
                 IEC7bits.ADCAN22IE = 1;
                 ADIEHbits.IE22 = 1;
                 break;
+        case Channel_AN0:
+                IEC5bits.ADCAN0IE = 1;
+                ADIELbits.IE0 = 1;
+                break;
+        case Channel_AN1:
+                IEC5bits.ADCAN1IE = 1;
+                ADIELbits.IE1 = 1;
+                break;
         default:
                 break;
     }
@@ -339,6 +361,14 @@ inline static void ADC1_IndividualChannelInterruptDisable(enum ADC_CHANNEL chann
                 IEC7bits.ADCAN22IE = 0;
                 ADIEHbits.IE22 = 0;
                 break;
+        case Channel_AN0:
+                IEC5bits.ADCAN0IE = 0;
+                ADIELbits.IE0 = 0;
+                break;
+        case Channel_AN1:
+                IEC5bits.ADCAN1IE = 0;
+                ADIELbits.IE1 = 0;
+                break;
         default:
                 break;
     }
@@ -356,6 +386,12 @@ inline static void ADC1_IndividualChannelInterruptFlagClear(enum ADC_CHANNEL cha
     {
         case Channel_AN22:
                 IFS7bits.ADCAN22IF = 0;
+                break;
+        case Channel_AN0:
+                IFS5bits.ADCAN0IF = 0;
+                break;
+        case Channel_AN1:
+                IFS5bits.ADCAN1IF = 0;
                 break;
         default:
                 break;
@@ -375,6 +411,12 @@ inline static void ADC1_IndividualChannelInterruptPrioritySet(enum ADC_CHANNEL c
 	{
 		case Channel_AN22:
 				IPC28bits.ADCAN22IP = priorityValue;
+				break;
+		case Channel_AN0:
+				IPC22bits.ADCAN0IP = priorityValue;
+				break;
+		case Channel_AN1:
+				IPC23bits.ADCAN1IP = priorityValue;
 				break;
 		default:
 				break;
@@ -435,6 +477,16 @@ void ADC1_ComparatorCallback(enum ADC_CMP comparator);
  */
 void ADC1_ChannelTasks(enum ADC_CHANNEL channel);
 
+
+// Section: Interface functions: Dedicated Core
+
+/**
+ * @ingroup    adcdriver
+ * @brief      Enables analog and digital power for ADC1 dedicated core
+ * @param[in]  core - Selected core  
+ * @return     none  
+ */
+void ADC1_CorePowerEnable(enum ADC_DEDICATED_CORE core);
 
 
 /**

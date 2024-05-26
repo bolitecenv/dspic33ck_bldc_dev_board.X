@@ -28,8 +28,8 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef XC_HEADER_TEMPLATE_H
-#define	XC_HEADER_TEMPLATE_H
+#ifndef MAIN_H
+#define	MAIN_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
@@ -46,6 +46,9 @@
 #include "motor_driver.h"
 #include "square_wave_control.h"
 #include "sine_wave_control.h"
+
+#include "mcp8024.h"
+#include "mcp8024_driver.h"
 
 
 #ifdef	__cplusplus

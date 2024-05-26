@@ -12,7 +12,7 @@
  * @skipline  Device : dsPIC33CK256MP508
 */
 /*
-© [2024] Microchip Technology Inc. and its subsidiaries.
+? [2024] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -37,9 +37,8 @@
 #include "../clock.h"
 #include "../pins.h"
 #include "../../adc/adc1.h"
+#include "../../dma/dma.h"
 #include "../dmt.h"
-#include "../../opa/opa1.h"
-#include "../../opa/opa2.h"
 #include "../../opa/opa3.h"
 #include "../../pwm_hs/pwm.h"
 #include "../../timer/sccp1.h"
@@ -53,9 +52,8 @@ void SYSTEM_Initialize(void)
     CLOCK_Initialize();
     PINS_Initialize();
     ADC1_Initialize();
+    DMA_Initialize();
     DMT_Initialize();
-    OPA1_Initialize();
-    OPA2_Initialize();
     OPA3_Initialize();
     PWM_Initialize();
     SCCP1_Timer_Initialize();
