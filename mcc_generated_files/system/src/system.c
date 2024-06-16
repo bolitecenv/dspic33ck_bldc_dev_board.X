@@ -42,6 +42,7 @@
 #include "../../opa/opa3.h"
 #include "../../pwm_hs/pwm.h"
 #include "../../timer/sccp1.h"
+#include "../../timer/sccp2.h"
 #include "../../uart/uart1.h"
 #include "../../uart/uart2.h"
 #include "../interrupt.h"
@@ -57,6 +58,7 @@ void SYSTEM_Initialize(void)
     OPA3_Initialize();
     PWM_Initialize();
     SCCP1_Timer_Initialize();
+    SCCP2_Timer_Initialize();
     UART1_Initialize();
     UART2_Initialize();
     INTERRUPT_GlobalEnable();

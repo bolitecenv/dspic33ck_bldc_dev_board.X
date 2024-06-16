@@ -159,8 +159,8 @@ void UART2_Initialize(void)
     U2STA = 0x80;
     // URXISEL ; UTXBE ; UTXISEL TX_BUF_EMPTY; URXBE ; STPMD ; TXWRE ; 
     U2STAH = 0x2E;
-    // BaudRate 9599.69; Frequency 100000000 Hz; BRG 10417; 
-    U2BRG = 0x28B1;
+    // BaudRate 115207.37; Frequency 100000000 Hz; BRG 868; 
+    U2BRG = 0x364;
     // BRG 0; 
     U2BRGH = 0x0;
     

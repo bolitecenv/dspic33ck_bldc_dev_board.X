@@ -46,6 +46,7 @@
           <itemPath>mcc_generated_files/timer/delay.h</itemPath>
           <itemPath>mcc_generated_files/timer/timer_interface.h</itemPath>
           <itemPath>mcc_generated_files/timer/sccp1.h</itemPath>
+          <itemPath>mcc_generated_files/timer/sccp2.h</itemPath>
         </logicalFolder>
         <logicalFolder name="uart" displayName="uart" projectFiles="true">
           <itemPath>mcc_generated_files/uart/uart_types.h</itemPath>
@@ -116,6 +117,7 @@
           <logicalFolder name="src" displayName="src" projectFiles="true">
             <itemPath>mcc_generated_files/timer/src/delay.c</itemPath>
             <itemPath>mcc_generated_files/timer/src/sccp1.c</itemPath>
+            <itemPath>mcc_generated_files/timer/src/sccp2.c</itemPath>
           </logicalFolder>
         </logicalFolder>
         <logicalFolder name="uart" displayName="uart" projectFiles="true">

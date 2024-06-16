@@ -3,21 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/mcc_generated_files/system/src/pins.c</file>
-            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/main.h</file>
-            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/pwm_user.c</file>
+            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/mcc_generated_files/dma/src/dma.c</file>
+            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/mcc_generated_files/adc/src/adc1.c</file>
+            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/mcc_generated_files/timer/sccp2.h</file>
+            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/mcc_generated_files/uart/src/uart2.c</file>
             <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/main.c</file>
-            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/motor_driver_macros.h</file>
-            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/mcc_generated_files/adc/adc_types.h</file>
-            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/square_wave_control.h</file>
-            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/mcc_generated_files/adc/adc_interface.h</file>
             <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/square_wave_control.c</file>
-            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/motor_driver.h</file>
-            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/mcc_generated_files/pwm_hs/pwm.h</file>
-            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/mcc_generated_files/adc/adc_features.h</file>
-            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/motor_driver.c</file>
+            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/mcc_generated_files/dma/dma.h</file>
+            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/sine_wave_control.c</file>
             <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/mcc_generated_files/adc/adc1.h</file>
-            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/pwm_user.h</file>
+            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/mcc_generated_files/system/src/system.c</file>
+            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/mcc_generated_files/timer/src/sccp2.c</file>
+            <file>file:/home/btubuntu/MPLABXProjects/dspic33ck_bldc_dev_board.X/mcp8024_driver.c</file>
         </group>
     </open-files>
 </project-private>
