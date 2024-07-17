@@ -12,6 +12,9 @@
 
 #define RX_BUFFER_SIZE  30
 
+extern volatile uint32_t timer_1us;
+static uint32_t motor_delay_before;
+
 volatile static uint8_t rx_flag = 0;
 
 volatile static uint8_t rx_cnt = 0;
@@ -30,12 +33,33 @@ void error_handler(void);
 void MCP8024_Send_CMD(uint8_t cmd)
 {
     //check if the 1-wire line is in busy state.
-
+    while(MCP8024_isBusy());
+    
     UART1_Write(cmd);
 }
 
+error_t MCP8024_Receive(uint8_t *buf, uint8_t receive_buf_size, uint16_t time_out)
+{
+    error_t ret = NG;
+    
+    rx_receive_it_cnt = receive_buf_size;
+    rx_receive_it_flag = true;
+    p_rx_buf = buf;
+    motor_delay_before = timer_1us;
+    
+    while(rx_receive_it_flag)
+    {
+        if( (timer_1us - motor_delay_before) > time_out )
+        {
+            ret = ERROR_TIMEOUT;
+        }
+    }
+    
+    return ret;
+}
 
-void MCP8024_Recieve_IT(uint8_t *buf, uint8_t receive_buf_size)
+
+void MCP8024_Receive_IT(uint8_t *buf, uint8_t receive_buf_size)
 {
     rx_receive_it_cnt = receive_buf_size;
     rx_receive_it_flag = true;

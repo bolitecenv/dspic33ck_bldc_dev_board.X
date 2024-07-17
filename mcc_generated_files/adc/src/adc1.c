@@ -15,7 +15,7 @@
 */
 
 /*
-© [2024] Microchip Technology Inc. and its subsidiaries.
+? [2024] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -303,8 +303,8 @@ void ADC1_Initialize (void)
     ADTRIG2L = 0x0;
     //TRGSRC10 None; TRGSRC11 None; 
     ADTRIG2H = 0x0;
-    //TRGSRC12 None; TRGSRC13 None; 
-    ADTRIG3L = 0x0;
+    //TRGSRC12 PWM8 Trigger1; TRGSRC13 None; 
+    ADTRIG3L = 0x12;
     //TRGSRC14 None; TRGSRC15 None; 
     ADTRIG3H = 0x0;
     //TRGSRC16 None; TRGSRC17 None; 
@@ -550,6 +550,9 @@ void ADC1_PWMTriggerSourceSet(enum ADC_CHANNEL channel, enum ADC_PWM_INSTANCE pw
     adcTriggerValue= ADC1_TriggerSourceValueGet(pwmInstance, triggerNumber);
     switch(channel)
     {
+        case Channel_AN12:
+                ADTRIG3Lbits.TRGSRC12 = adcTriggerValue;
+                break;
         case Channel_AN22:
                 ADTRIG5Hbits.TRGSRC22 = adcTriggerValue;
                 break;
@@ -586,6 +589,16 @@ void __attribute__ ( ( __interrupt__ , auto_psv, weak ) ) _ADCInterrupt ( void )
         (*ADC1_CommonHandler)();
     }
     
+    if(IFS6bits.ADCAN12IF == 1)
+    {
+        //Read the ADC value from the ADCBUF before clearing interrupt
+        adcVal = ADCBUF12;
+        if(NULL != ADC1_ChannelHandler)
+        {
+            (*ADC1_ChannelHandler)(Channel_AN12, adcVal);
+        }
+        IFS6bits.ADCAN12IF = 0;
+    }
     if(IFS7bits.ADCAN22IF == 1)
     {
         //Read the ADC value from the ADCBUF before clearing interrupt
@@ -650,6 +663,21 @@ void __attribute__ ((weak)) ADC1_ChannelCallback (enum ADC_CHANNEL channel, uint
 } 
 
 
+void __attribute__ ( ( __interrupt__ , auto_psv, weak ) ) _ADCAN12Interrupt ( void )
+{
+    uint16_t valChannel_AN12;
+    //Read the ADC value from the ADCBUF
+    valChannel_AN12 = ADCBUF12;
+
+    if(NULL != ADC1_ChannelHandler)
+    {
+        (*ADC1_ChannelHandler)(Channel_AN12, valChannel_AN12);
+    }
+
+    //clear the Channel_AN12 interrupt flag
+    IFS6bits.ADCAN12IF = 0;
+}
+
 void __attribute__ ( ( __interrupt__ , auto_psv, weak ) ) _ADCAN22Interrupt ( void )
 {
     uint16_t valChannel_AN22;
@@ -703,6 +731,18 @@ void __attribute__ ((weak)) ADC1_ChannelTasks (enum ADC_CHANNEL channel)
     
     switch(channel)
     {   
+        case Channel_AN12:
+            if((bool)ADSTATLbits.AN12RDY == 1)
+            {
+                //Read the ADC value from the ADCBUF
+                adcVal = ADCBUF12;
+
+                if(NULL != ADC1_ChannelHandler)
+                {
+                    (*ADC1_ChannelHandler)(channel, adcVal);
+                }
+            }
+            break;
         case Channel_AN22:
             if((bool)ADSTATHbits.AN22RDY == 1)
             {

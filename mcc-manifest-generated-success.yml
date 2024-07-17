@@ -2,8 +2,8 @@
 
 manifest_file_version: 1.0.0
 project: dspic33ck_bldc_dev_board
-creation_date: 2024-05-27T08:39:23.767+09:00[Asia/Tokyo]
-operating_system: Linux
+creation_date: 2024-06-24T06:11:50.943+09:00[Asia/Tokyo]
+operating_system: Windows 10
 mcc_mode: IDE
 mcc_mode_version: v6.20
 device_name: dsPIC33CK256MP508

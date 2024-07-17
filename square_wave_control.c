@@ -7,6 +7,7 @@
 
 
 #include "main.h"
+#include "tools.h"
 
 
 extern volatile uint32_t timer_1us;
@@ -21,17 +22,37 @@ static uint32_t motor_speed_us;
 
 void motor_square_control_state(uint8_t next_state);
 
+void IO_RC3_CallBack(void)
+{
+
+}
+
+void IO_RD10_CallBack(void)
+{
+
+}
+
+
+void IO_RD11_CallBack(void)
+{
+
+}
+
 static void (*Step_Change_callback)(void) = NULL;
 
 
 void Square_Control_Setup(void (*step_change_callback)(void))
 {
     Step_Change_callback = step_change_callback;
+
+    IO_RC3_SetInterruptHandler(IO_RC3_CallBack);
+    IO_RD10_SetInterruptHandler(IO_RD10_CallBack);
+    IO_RD11_SetInterruptHandler(IO_RD11_CallBack);
     
     
-    Motor_Power = 20;
-    Motor_Speed = 20;
-    motor_square_state = 0;
+    Motor_Power = 20; // Set motor power 0-100.
+    Motor_Speed = 10; // 10 ms to change the motor state.
+    motor_square_state = 0; // Motor state 0-5
     motor_delay_flag = 0;
     motor_delay_before = 0;
     motor_speed_us = 0;
@@ -43,22 +64,26 @@ void Square_Control_Setup(void (*step_change_callback)(void))
 
 void Square_Pulse()
 {
+    // Check if the required time has passed to change the motor state.
     if(motor_delay_flag == 0)
     {
-        Motor_Power = (uint16_t)(ADC1_ConversionResultGet(0)>>5);
+        // Scale the ADC 12 bit value to 0-100
+        Motor_Power = Scaling100(ADC1_ConversionResultGet(Channel_AN22), 4095, 100);
+        // Update motor power
         Motor_Driver_Phase_Parameter_Set(A, Motor_Power);
         Motor_Driver_Phase_Parameter_Set(B, Motor_Power);
         Motor_Driver_Phase_Parameter_Set(C, Motor_Power);
-    
+        
+        // Move the state
         motor_square_control_state(motor_square_state);
 
         motor_square_state++;
-        motor_square_state = motor_square_state % 6;
+        motor_square_state = motor_square_state % 6; // State will rotate the value from 0 to 5.
 
-        motor_delay_before = timer_1us;
-        motor_speed_us = Motor_Speed*1000;
+        motor_delay_before = timer_1us; // Get the timer to caluculate the elapsed time.
+        motor_speed_us = Motor_Speed*1000; // Make the motor speed in microseconds, as Motor_Speed is in milliseconds.
         
-        
+        // If the motor state changes, the callback is called.
         if(NULL != Step_Change_callback)
         {
             (*Step_Change_callback)();
@@ -71,9 +96,6 @@ void Square_Pulse()
                 motor_delay_flag = 0;
         }
     }
-    
-    
-    //DELAY_milliseconds(Motor_Speed);
 }
 
 

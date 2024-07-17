@@ -33,6 +33,13 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
+#define CE_ON   0x0001
+#define CE_OFF  0x0000
+
+// Macro function
+#define MCP8024_CE(x)  (LATE = ((LATE) & ~(1 << 4)) | ((x) << 4)) 
+
+#define MCP8024_isBusy() ~(PORTCbits.RC13)
 
 
 typedef enum
@@ -48,8 +55,11 @@ typedef enum
     BR_OutputUnderVoltage
 }ERROR_CODE;
 
+
+
 void MCP8024_Send_CMD(uint8_t cmd);
-void MCP8024_Recieve_IT(uint8_t *buf, uint8_t receive_buf_size);
+error_t MCP8024_Receive(uint8_t *buf, uint8_t receive_buf_size, uint16_t time_out);
+void MCP8024_Receive_IT(uint8_t *buf, uint8_t receive_buf_size);
 void MCP8024_Receive_IT_Complete_Callback(void);
 void MCP8024_Receive_Callback(void);
 void MCP8024_Error_Handler(uint8_t cmd, uint8_t error_code);

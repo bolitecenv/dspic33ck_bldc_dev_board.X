@@ -66,8 +66,6 @@ void Motor_Driver_Phase_SetMode(Motor_Phase motor_phase, PP_MODE pp_mode)
 {
     enum PWM_GENERATOR pwm_generator = Motor_Driver_GetPWMNumFromPhase(motor_phase);
     
-    //PWM_PinMode_Disable(pwm_generator);
-    
     switch(pp_mode)
     {
         case PP_HiZ:

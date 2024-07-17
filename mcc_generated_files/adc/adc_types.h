@@ -15,7 +15,7 @@
 */
 
 /*
-© [2024] Microchip Technology Inc. and its subsidiaries.
+? [2024] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -54,11 +54,12 @@
 */
 enum ADC_CHANNEL
 {
+    Channel_AN12,    /**<Channel Name:AN12   Assigned to:Shared Channel*/
     Channel_AN22,    /**<Channel Name:AN22   Assigned to:Shared Channel*/
     Channel_AN0,    /**<Channel Name:AN0   Assigned to:Dedicated Core0*/
     Channel_AN1,    /**<Channel Name:AN1   Assigned to:Dedicated Core1*/
-    MAX_CHANNELS = 3,    /**< MAX_CHANNELS will be removed in future MCC releases. Use ADC_MAX_CHANNELS instead */
-    ADC_MAX_CHANNELS = 3    /**< Maximum number of channels configured by user in MCC Melody User Interface */
+    MAX_CHANNELS = 4,    /**< MAX_CHANNELS will be removed in future MCC releases. Use ADC_MAX_CHANNELS instead */
+    ADC_MAX_CHANNELS = 4    /**< Maximum number of channels configured by user in MCC Melody User Interface */
 };
 
 

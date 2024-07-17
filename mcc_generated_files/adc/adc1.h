@@ -15,7 +15,7 @@
 */
 
 /*
-© [2024] Microchip Technology Inc. and its subsidiaries.
+? [2024] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -181,6 +181,9 @@ inline static uint16_t ADC1_ConversionResultGet( enum ADC_CHANNEL channel )
 
     switch(channel)
     {
+        case Channel_AN12:
+                result = ADCBUF12;
+                break;
         case Channel_AN22:
                 result = ADCBUF22;
                 break;
@@ -214,6 +217,9 @@ inline static bool ADC1_IsConversionComplete(enum ADC_CHANNEL channel)
 
     switch(channel)
     {
+        case Channel_AN12:
+                status = ADSTATLbits.AN12RDY;
+                break;
         case Channel_AN22:
                 status = ADSTATHbits.AN22RDY;
                 break;
@@ -330,6 +336,10 @@ inline static void ADC1_IndividualChannelInterruptEnable(enum ADC_CHANNEL channe
 {
     switch(channel)
     {
+        case Channel_AN12:
+                IEC6bits.ADCAN12IE = 1;
+                ADIELbits.IE12 = 1;
+                break;
         case Channel_AN22:
                 IEC7bits.ADCAN22IE = 1;
                 ADIEHbits.IE22 = 1;
@@ -357,6 +367,10 @@ inline static void ADC1_IndividualChannelInterruptDisable(enum ADC_CHANNEL chann
 {
     switch(channel)
     {
+        case Channel_AN12:
+                IEC6bits.ADCAN12IE = 0;
+                ADIELbits.IE12 = 0;
+                break;
         case Channel_AN22:
                 IEC7bits.ADCAN22IE = 0;
                 ADIEHbits.IE22 = 0;
@@ -384,6 +398,9 @@ inline static void ADC1_IndividualChannelInterruptFlagClear(enum ADC_CHANNEL cha
 {
     switch(channel)
     {
+        case Channel_AN12:
+                IFS6bits.ADCAN12IF = 0;
+                break;
         case Channel_AN22:
                 IFS7bits.ADCAN22IF = 0;
                 break;
@@ -409,6 +426,9 @@ inline static void ADC1_IndividualChannelInterruptPrioritySet(enum ADC_CHANNEL c
 {
 	switch(channel)
 	{
+		case Channel_AN12:
+				IPC25bits.ADCAN12IP = priorityValue;
+				break;
 		case Channel_AN22:
 				IPC28bits.ADCAN22IP = priorityValue;
 				break;

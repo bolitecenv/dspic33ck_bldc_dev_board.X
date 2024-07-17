@@ -28,47 +28,45 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef MAIN_H
-#define	MAIN_H
+#ifndef DATA_SENDER_H
+#define	DATA_SENDER_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-#include <stdbool.h>
-#include <string.h>
-
-#define error_t         uint8_t
-
-#define OK              0x00
-#define NG              0x01
-#define ERROR_PARAM     0x02
-#define ERROR_TIMEOUT   0x03
-
-#include "mcc_generated_files/system/system.h"
-#include "mcc_generated_files/system/pins.h"
-#include "mcc_generated_files/adc/adc1.h"
-#include "mcc_generated_files/pwm_hs/pwm.h"
-#include "mcc_generated_files/pwm_hs/pwm_hs_interface.h"
-
-#include "tools.h"
-#include "pwm_user.h"
-#include "motor_driver.h"
-#include "square_wave_control.h"
-#include "sine_wave_control.h"
-
-#include "mcp8024.h"
-#include "mcp8024_driver.h"
 
 
-#ifdef	__cplusplus
-extern "C" {
-#endif /* __cplusplus */
 
-    // TODO If C++ is being used, regular C code needs function names to have C 
-    // linkage so the functions can be used by the c code. 
+#define HEADER_CODE     0x80 // This is magic number.
 
-#ifdef	__cplusplus
-}
-#endif /* __cplusplus */
+#define TYPE_COMMAND    0x01
+#define TYPE_DATA       0x02
+#define TYPE_LOG        0x03
+
+
+typedef struct{
+    uint8_t     type;
+    uint8_t     mcp_state;
+    uint16_t    length;
+}__attribute__((__packed__)) StaticHeader_ST;
+
+typedef struct{
+    uint16_t     data_length;
+    uint8_t*     data;
+}__attribute__((__packed__)) Data_ST;
+
+typedef struct{
+    StaticHeader_ST*    header;
+    Data_ST*            payload;
+}__attribute__((__packed__)) Message_ST;
+
+
+
+
+void static_header();
+void Send_Data(uint8_t mcp_state, uint8_t type, uint8_t* data, uint16_t length);
+void Send_Command(uint8_t mcp_state);
+
+
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

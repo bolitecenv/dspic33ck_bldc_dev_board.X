@@ -63,6 +63,8 @@
       <itemPath>sine_wave_control.h</itemPath>
       <itemPath>mcp8024_driver.h</itemPath>
       <itemPath>mcp8024.h</itemPath>
+      <itemPath>data_sender.h</itemPath>
+      <itemPath>tools.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -133,6 +135,8 @@
       <itemPath>motor_driver.c</itemPath>
       <itemPath>sine_wave_control.c</itemPath>
       <itemPath>mcp8024_driver.c</itemPath>
+      <itemPath>sin.c</itemPath>
+      <itemPath>data_sender.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -146,7 +150,7 @@
         <platformTool>snap</platformTool>
         <languageToolchain>XC16</languageToolchain>
         <languageToolchainVersion>2.10</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <packs>
         <pack name="dsPIC33CK-MP_DFP" vendor="Microchip" version="1.13.366"/>
