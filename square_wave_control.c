@@ -9,6 +9,9 @@
 #include "main.h"
 #include "tools.h"
 
+#define IO_HALL_A   PORTBbits.RB5
+#define IO_HALL_B   PORTBbits.RB6
+#define IO_HALL_C   PORTDbits.RD5
 
 extern volatile uint32_t timer_1us;
 
@@ -69,6 +72,7 @@ void Square_Pulse()
     {
         // Scale the ADC 12 bit value to 0-100
         Motor_Power = Scaling100(ADC1_ConversionResultGet(Channel_AN22), 4095, 100);
+
         // Update motor power
         Motor_Driver_Phase_Parameter_Set(A, Motor_Power);
         Motor_Driver_Phase_Parameter_Set(B, Motor_Power);
@@ -98,11 +102,45 @@ void Square_Pulse()
     }
 }
 
+void Square_Hall()
+{
+    Motor_Power = Scaling100(ADC1_ConversionResultGet(Channel_AN22), 4095, 100);
+        Motor_Driver_Phase_Parameter_Set(A, Motor_Power);
+        Motor_Driver_Phase_Parameter_Set(B, Motor_Power);
+        Motor_Driver_Phase_Parameter_Set(C, Motor_Power);
+    
+        motor_square_control_state(motor_square_state);
+
+        switch(motor_square_state)
+        {
+                case 0:
+                        while(IO_HALL_B == 1);
+                        break;
+                case 1:
+                        while(IO_HALL_C == 0);
+                        break;
+                case 2:
+                        while(IO_HALL_A == 1);
+                        break;
+                case 3:
+                        while(IO_HALL_B == 0);
+                        break;
+                case 4:
+                        while(IO_HALL_C == 1);
+                        break;
+                case 5:
+                        while(IO_HALL_A == 0);
+                        break;
+        }
+        motor_square_state++;
+        motor_square_state = motor_square_state % 6;
+}
+
 
 
 void Square_FeedBack()
 {
-        Motor_Power = (uint16_t)(ADC1_ConversionResultGet(0)>>5);
+        Motor_Power = Scaling100(ADC1_ConversionResultGet(Channel_AN22), 4095, 100);
         Motor_Driver_Phase_Parameter_Set(A, Motor_Power);
         Motor_Driver_Phase_Parameter_Set(B, Motor_Power);
         Motor_Driver_Phase_Parameter_Set(C, Motor_Power);

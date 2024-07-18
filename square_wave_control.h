@@ -35,6 +35,7 @@
 
 void Square_Control_Setup();
 void Square_Pulse();
+void Square_Hall();
 void Square_FeedBack();
 
 // TODO Insert declarations or function prototypes (right here) to leverage 

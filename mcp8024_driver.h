@@ -39,7 +39,7 @@
 // Macro function
 #define MCP8024_CE(x)  (LATE = ((LATE) & ~(1 << 4)) | ((x) << 4)) 
 
-#define MCP8024_isBusy() ~(PORTCbits.RC13)
+#define MCP8024_isBusy() (PORTCbits.RC13)
 
 
 typedef enum

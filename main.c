@@ -27,13 +27,8 @@
 
 #define ADC_NUM 256
 
-typedef struct{
-    uint16_t    header;
-    uint8_t     motor_status;
-    uint16_t    data_size;
-}__attribute__((__packed__)) serial_st;
 
-
+void MCP_Initialize();
 
 volatile uint32_t timer_1us = 0;
 
@@ -61,43 +56,11 @@ void MCP8024_Error_Handler(uint8_t cmd, uint8_t error_code)
 
 void Phase_Change_callback()
 {
-    adc_send_flag = true;
+    //adc_send_flag = true;
 }
 
-void customWrite(const void *buf, size_t count)
+void MCP_Initialize()
 {
-    int bytes_written = 0;
-    int result = 0;
-    uint8_t *cp;
-    
-    cp = (uint8_t *)buf;
-
-    while (bytes_written < count)
-    {
-        UART2_Write(*(cp+bytes_written));
-
-        bytes_written += 1;
-    }
-}
-
-int main(void)
-{
-    SYSTEM_Initialize();
-    
-    double a = sin(0.1);
-    uint8_t str[12] = "123456789a";
-    Send_Data(MCP8024_STATUS_0, str, 12);
-    Send_Command(MCP8024_STATUS_0);
-    
-    while(1){}
-            
-    //SCCP1_Timer_Start();
-    SCCP2_Timer_Start();
-    PWM_Enable();
-
-    
-    printf("Start.... \r\n");
-
     MCP8024_CE(CE_OFF);
 
     uint8_t buf[3] = {0};
@@ -137,25 +100,36 @@ int main(void)
     printf("received %x %x %x\r\n", buf[0], buf[1], buf[2]);
 
     MCP8024_CE(CE_ON);
-    
-    //DMA_ChannelEnable(DMA_CHANNEL_0);
-    //DMA_TransferCountSet
-    //DMA_SourceAddressSet()
-    //DMA_DestinationAddressSet
-    
-    //DMA_SoftwareTriggerEnable(DMA_CHANNEL_0);
+}
 
+int main(void)
+{
+    SYSTEM_Initialize();
+    
+//    double a = sin(0.1);
+//    uint8_t str[12] = "123456789a";
+//    Send_Data(MCP8024_STATUS_0, str, 12);
+//    Send_Command(MCP8024_STATUS_0);
+//    
+            
+    //SCCP1_Timer_Start();
+    SCCP2_Timer_Start();
+    PWM_Enable();
+
+    
+    printf("Start.... \r\n");
+
+    MCP_Initialize();
+   
     //Sine_NoFeedBack_Setup();
-    
-
-    
     
     Square_Control_Setup(Phase_Change_callback);
     
     while(1)
     {
         //Sine_NoFeedBack();
-        Square_Pulse();
+        //Square_Pulse();
+        Square_Hall();
         //Square_FeedBack();
 
         //DELAY_milliseconds(1);
@@ -170,38 +144,15 @@ int main(void)
         
         if(adc_buf_full == true)
         {
-            serial_st serial_send_byte;
-            serial_send_byte.header = 0xb011;
-            serial_send_byte.motor_status = 0x23;
-            serial_send_byte.data_size = ADC_NUM;
-
-            customWrite(&serial_send_byte, sizeof(serial_send_byte));
-            
             for(uint16_t i = 0; i < ADC_NUM; i++)
             {
-                uint8_t temp = (uint8_t)(adc_buf[i] >> 4);
-                UART2_Write(temp);
-                //printf("%d\n", adc_buf[i]);
+                // send adc
             }
-            UART2_Write('\n');
             adc_buf_full = false;
         }else if(adc_send_flag == true){
             
             //adc_buf[adc_cnt] = ADC1_ConversionResultGet(Channel_AN22);
-            uint16_t adc_A = ADC1_ConversionResultGet(Channel_AN0);
-            uint16_t adc_B = ADC1_ConversionResultGet(Channel_AN1);
-            uint16_t adc_C = ADC1_ConversionResultGet(Channel_AN12);
             
-            uint32_t temp_adc = adc_A + adc_B + adc_C;
-            temp_adc = temp_adc/3;
-            if(temp_adc > adc_A){
-                adc_buf[adc_cnt] = 1000;
-            }else{
-                adc_buf[adc_cnt] = 0;
-            }
-            
-            adc_buf[adc_cnt] = ADC1_ConversionResultGet(Channel_AN22);
-//            adc_buf[adc_cnt] = ADC1_ConversionResultGet(Channel_AN0);
             adc_cnt++;
             if(adc_cnt >= ADC_NUM)
             {

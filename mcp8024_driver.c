@@ -33,7 +33,7 @@ void error_handler(void);
 void MCP8024_Send_CMD(uint8_t cmd)
 {
     //check if the 1-wire line is in busy state.
-    while(MCP8024_isBusy());
+    //while(MCP8024_isBusy());
     
     UART1_Write(cmd);
 }

@@ -45,6 +45,108 @@
 
 /**
  * @ingroup  pinsdriver
+ * @brief    Sets the RB5 GPIO Pin which has a custom name of IO_RB5 to High
+ * @pre      The RB5 must be set as Output Pin             
+ * @param    none
+ * @return   none  
+ */
+#define IO_RB5_SetHigh()          (_LATB5 = 1)
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Sets the RB5 GPIO Pin which has a custom name of IO_RB5 to Low
+ * @pre      The RB5 must be set as Output Pin
+ * @param    none
+ * @return   none  
+ */
+#define IO_RB5_SetLow()           (_LATB5 = 0)
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Toggles the RB5 GPIO Pin which has a custom name of IO_RB5
+ * @pre      The RB5 must be set as Output Pin
+ * @param    none
+ * @return   none  
+ */
+#define IO_RB5_Toggle()           (_LATB5 ^= 1)
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Reads the value of the RB5 GPIO Pin which has a custom name of IO_RB5
+ * @param    none
+ * @return   none  
+ */
+#define IO_RB5_GetValue()         _RB5
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Configures the RB5 GPIO Pin which has a custom name of IO_RB5 as Input
+ * @param    none
+ * @return   none  
+ */
+#define IO_RB5_SetDigitalInput()  (_TRISB5 = 1)
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Configures the RB5 GPIO Pin which has a custom name of IO_RB5 as Output
+ * @param    none
+ * @return   none  
+ */
+#define IO_RB5_SetDigitalOutput() (_TRISB5 = 0)
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Sets the RB6 GPIO Pin which has a custom name of IO_RB6 to High
+ * @pre      The RB6 must be set as Output Pin             
+ * @param    none
+ * @return   none  
+ */
+#define IO_RB6_SetHigh()          (_LATB6 = 1)
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Sets the RB6 GPIO Pin which has a custom name of IO_RB6 to Low
+ * @pre      The RB6 must be set as Output Pin
+ * @param    none
+ * @return   none  
+ */
+#define IO_RB6_SetLow()           (_LATB6 = 0)
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Toggles the RB6 GPIO Pin which has a custom name of IO_RB6
+ * @pre      The RB6 must be set as Output Pin
+ * @param    none
+ * @return   none  
+ */
+#define IO_RB6_Toggle()           (_LATB6 ^= 1)
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Reads the value of the RB6 GPIO Pin which has a custom name of IO_RB6
+ * @param    none
+ * @return   none  
+ */
+#define IO_RB6_GetValue()         _RB6
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Configures the RB6 GPIO Pin which has a custom name of IO_RB6 as Input
+ * @param    none
+ * @return   none  
+ */
+#define IO_RB6_SetDigitalInput()  (_TRISB6 = 1)
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Configures the RB6 GPIO Pin which has a custom name of IO_RB6 as Output
+ * @param    none
+ * @return   none  
+ */
+#define IO_RB6_SetDigitalOutput() (_TRISB6 = 0)
+
+/**
+ * @ingroup  pinsdriver
  * @brief    Sets the RC3 GPIO Pin which has a custom name of IO_RC3 to High
  * @pre      The RC3 must be set as Output Pin             
  * @param    none
@@ -93,6 +195,57 @@
  * @return   none  
  */
 #define IO_RC3_SetDigitalOutput() (_TRISC3 = 0)
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Sets the RD5 GPIO Pin which has a custom name of IO_RD5 to High
+ * @pre      The RD5 must be set as Output Pin             
+ * @param    none
+ * @return   none  
+ */
+#define IO_RD5_SetHigh()          (_LATD5 = 1)
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Sets the RD5 GPIO Pin which has a custom name of IO_RD5 to Low
+ * @pre      The RD5 must be set as Output Pin
+ * @param    none
+ * @return   none  
+ */
+#define IO_RD5_SetLow()           (_LATD5 = 0)
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Toggles the RD5 GPIO Pin which has a custom name of IO_RD5
+ * @pre      The RD5 must be set as Output Pin
+ * @param    none
+ * @return   none  
+ */
+#define IO_RD5_Toggle()           (_LATD5 ^= 1)
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Reads the value of the RD5 GPIO Pin which has a custom name of IO_RD5
+ * @param    none
+ * @return   none  
+ */
+#define IO_RD5_GetValue()         _RD5
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Configures the RD5 GPIO Pin which has a custom name of IO_RD5 as Input
+ * @param    none
+ * @return   none  
+ */
+#define IO_RD5_SetDigitalInput()  (_TRISD5 = 1)
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Configures the RD5 GPIO Pin which has a custom name of IO_RD5 as Output
+ * @param    none
+ * @return   none  
+ */
+#define IO_RD5_SetDigitalOutput() (_TRISD5 = 0)
 
 /**
  * @ingroup  pinsdriver
