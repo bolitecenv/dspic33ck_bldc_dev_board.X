@@ -56,6 +56,7 @@ void MCP8024_Error_Handler(uint8_t cmd, uint8_t error_code)
 
 void Phase_Change_callback()
 {
+    //LATEbits.LATE6 = ~LATEbits.LATE6;
     //adc_send_flag = true;
 }
 
@@ -125,12 +126,43 @@ int main(void)
     
     Square_Control_Setup(Phase_Change_callback);
     
+    uint16_t loop_cnt = 2000;
+    
     while(1)
     {
         //Sine_NoFeedBack();
         //Square_Pulse();
-        Square_Hall();
+        
+        //Square_Hall();
         //Square_FeedBack();
+        //Square_ADC_FeedBack(ADC1_ConversionResultGet(Channel_AN0), ADC1_ConversionResultGet(Channel_AN1), ADC1_ConversionResultGet(Channel_AN12));
+        
+        if(loop_cnt > 0)
+        {
+            Square_Hall();
+            
+            uint32_t virtual_neg = ADC1_ConversionResultGet(Channel_AN12) + ADC1_ConversionResultGet(Channel_AN1) + ADC1_ConversionResultGet(Channel_AN0);
+            virtual_neg = virtual_neg / 3;
+            uint8_t phase_A = 0;
+            if(virtual_neg > ADC1_ConversionResultGet(Channel_AN0))
+            {
+                phase_A = 100;
+            }else
+            {
+                phase_A = 0;
+            }
+        
+            //PWM_DutyCycleSet(PWM_GENERATOR_4, Get_Duty(Scaling100(virtual_neg, 4095*3, 100)));
+            PWM_DutyCycleSet(PWM_GENERATOR_4, Get_Duty(phase_A));
+            
+            loop_cnt--;
+        }else{
+            //Square_Hall();
+            Square_ADC_FeedBack(ADC1_ConversionResultGet(Channel_AN0), ADC1_ConversionResultGet(Channel_AN1), ADC1_ConversionResultGet(Channel_AN12));
+        }
+        
+        
+
 
         //DELAY_milliseconds(1);
         //adc_send_flag = true;

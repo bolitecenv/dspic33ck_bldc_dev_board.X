@@ -281,8 +281,8 @@ void PWM_Initialize (void)
     PG4CLPCIL = 0x0;
     // MSTEN disabled; TRIGMOD Single trigger mode; SOCS Self-trigger; UPDMOD Immediate; MPHSEL disabled; MPERSEL disabled; MDCSEL disabled; 
     PG4CONH = 0x100;
-    // DC4 20; 
-    PG4DC = 0x14;
+    // DC4 1667; 
+    PG4DC = 0x683;
     // DCA4 0x0; 
     PG4DCA = 0x0;
     // DTH4 0; 
@@ -309,8 +309,8 @@ void PWM_Initialize (void)
     PG4LEBH = 0x0;
     // LEB 0x0; 
     PG4LEBL = 0x0;
-    // PER4 99; 
-    PG4PER = 0x63;
+    // PER4 3332; 
+    PG4PER = 0xD04;
     // PHASE4 0; 
     PG4PHASE = 0x0;
     // PCIGT disabled; TQPS Not inverted; SWPCI Drives '0'; BPEN disabled; TQSS None; SWPCIM PCI acceptance logic; BPSEL PWM Generator 1; ACP Level-sensitive; 

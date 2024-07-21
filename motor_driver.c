@@ -9,7 +9,7 @@
 #include "main.h"
 
 
-motor_phase_st motor_phase_a_configs, motor_phase_b_configs, motor_phase_c_configs;
+static motor_phase_st motor_phase_a_configs, motor_phase_b_configs, motor_phase_c_configs;
 
 void Motor_Driver_Init(Motor_Phase motor_phase)
 {

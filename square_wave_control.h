@@ -37,6 +37,7 @@ void Square_Control_Setup();
 void Square_Pulse();
 void Square_Hall();
 void Square_FeedBack();
+void Square_ADC_FeedBack(uint16_t PhaseA_val, uint16_t PhaseB_val, uint16_t PhaseC_val);
 
 // TODO Insert declarations or function prototypes (right here) to leverage 
 // live documentation
